@@ -84,10 +84,10 @@
             }
         },
         "router" : {
-            "base" : "/pocky.virtual-list.uniapp/preview/"
+            "base" : ""
         },
         "devServer" : {
-            "https" : true
+            "https" : false
         }
     }
 }

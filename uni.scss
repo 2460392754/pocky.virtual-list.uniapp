@@ -1,4 +1,4 @@
-@import "uview-ui/theme.scss";
+@import 'uview-ui/theme.scss';
 
 // ==============================
 // custom
@@ -7,63 +7,68 @@ $color-green: #41b07e;
 $color-info: #8799a3;
 $color-white: #fff;
 
-view[class|="page"] {
-	color: $color-info;
-	font-size: 28rpx;
+view[class|='page'] {
+    color: $color-info;
+    font-size: 28rpx;
 }
 
-view[class|="page"]:not([class~="page-home"]) {
-	padding: 0 20upx;
+view[class^='page'] {
+    &:not([class$='page-home']) {
+        padding: 0 20rpx;
+    }
 }
 
 .btn-items {
-	.u-btn {
-		margin: 20rpx 0;
-	}
-}
-
-[class^="page"] {
-	color: #909399;
+    .u-btn {
+        margin: 20rpx 0;
+    }
 }
 
 .center {
-	text-align: center;
-	padding: 10rpx 0;
+    text-align: center;
+    padding: 10rpx 0;
 }
 
-.box {
-	line-height: 50px;
-	min-height: 50px;
-	width: 100%;
-	text-align: center;
-	border-bottom: 1px solid #d8d8d8;
+.virtual-list-container {
+    background: #f3f4f6;
+}
 
-	&:last-of-type {
-		border-bottom: 0;
-	}
+.item-virtual {
+    line-height: 50px;
+    min-height: 50px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+
+    > .content {
+        border-radius: 10px;
+        margin: 10px;
+    }
 }
 
 // ==============================
 // uview ui
 // ==============================
 .u-btn {
-	background-color: $color-green !important;
-	color: $color-white !important;
+    background-color: $color-green !important;
+    color: $color-white !important;
 
-	&.u-default-hover {
-		background-color: rgba($color-green, 0.5) !important;
-		color: $color-white !important;
-	}
+    &.u-default-hover {
+        background-color: rgba($color-green, 0.5) !important;
+        color: $color-white !important;
+    }
 }
 
 .u-navbar {
-	background-color: $color-green !important;
+    background-color: $color-green !important;
 
-	.u-title {
-		color: $color-white !important;
-	}
+    .u-title {
+        color: $color-white !important;
+    }
 }
 
 .u-load-more-wrap {
-	padding: 40rpx 0;
+    padding: 40rpx 0;
 }
