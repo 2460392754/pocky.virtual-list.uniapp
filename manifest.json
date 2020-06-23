@@ -84,7 +84,7 @@
             }
         },
         "router" : {
-            "base" : ""
+            "base" : "./"
         },
         "devServer" : {
             "https" : false

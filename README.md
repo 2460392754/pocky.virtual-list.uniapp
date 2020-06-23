@@ -34,7 +34,7 @@ npm install uniapp-virtual-list --save
 
 ## 基本使用
 
-例如页面: pages/list.vue
+例如: pages/list.vue
 
 ```vue
 <template>
@@ -253,6 +253,15 @@ export default {
 | height       | 虚拟列表容器高度                                                                                         | Number、String | 300    | -        |
 | item-height  | 列表中每个`item`渲染后 dom 的所占高度的预估值                                                            | Number         | 100    | -        |
 | dynamic      | 列表中每个`item`渲染后的 dom 实际所占高度是否是不同的                                                    | Boolean        | false  | -        |
+
+### Prop v-model
+
+对`v-model`返回的数据会进行修改，会添加额外的参数，不会对原数据(list)进行污染
+
+| 属性名         | 说明                           | 类型   |
+| -------------- | ------------------------------ | ------ |
+| \_virtualId    | 列表数据的索引                 | Number |
+| \_virtualStyle | 列表中每个`item`需要添加的样式 | String |
 
 ### Event
 
