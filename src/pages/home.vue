@@ -12,7 +12,7 @@ export default {
     methods: {
         onClickRedirect() {
             uni.switchTab({
-                url: '/src/pages/action-1'
+                url: '/src/pages/static'
             });
         }
     }

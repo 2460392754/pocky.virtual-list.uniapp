@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-uview-ui@^1.3.4:
-  version "1.3.4"
-  resolved "https://registry.npmjs.org/uview-ui/-/uview-ui-1.3.4.tgz#251167b2ce45a74ea73a3670a76620b54bc5dfc9"
-  integrity sha512-VCDr6gvEhVIuBaQ39piyXL+kWuYrfMOq4VBMCvQ7/57zP9gWxzrJxt4klwQGIlrVcf1ipjQjRuLZcBWt+X1nbQ==
+uview-ui@^1.3.68:
+  version "1.3.68"
+  resolved "https://registry.npm.taobao.org/uview-ui/download/uview-ui-1.3.68.tgz#30b7c43d9c0131744c06fff4ef11646944a807b6"
+  integrity sha1-MLfEPZwBMXRMBv/07xFkaUSoB7Y=

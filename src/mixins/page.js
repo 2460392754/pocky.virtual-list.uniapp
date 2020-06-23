@@ -1,6 +1,3 @@
-import { random } from '../utils';
-import color from 'uview-ui/libs/function/color';
-
 export default {
     data() {
         return {
@@ -16,6 +13,22 @@ export default {
 
     methods: {
         /**
+         * 点击 item 事件
+         * @param {Object[]} list 数据列表
+         * @param {number} index 当前的数据索引
+         */
+        onClickItem(list, index) {
+            const item = list[index];
+            const { title } = item;
+            const titleList = title.split('-');
+
+            titleList[3] || (titleList[3] = 0);
+            titleList[3]++;
+
+            item.title = titleList.join('-');
+        },
+
+        /**
          * 监听 滚动到顶部，重置并加载新数据
          */
         onScrolltoupper() {
@@ -28,6 +41,7 @@ export default {
                 this.list = [];
                 this.resetCount++;
                 this.$_mockListData();
+                this.$refs.virtualList.resetCache();
                 this.loadingStatus.upper = false;
 
                 console.log('--- onScrolltoupper end ---');
@@ -53,35 +67,12 @@ export default {
 
         /**
          * 获取 随机糖果色
+         * 通过闭包来处理私有变量
          */
         $_getRandomBgColor: (() => {
             let index = 0;
 
             return function () {
-                // #1
-                // const colorList = [
-                //     '#ffd3b6',
-                //     '#fd907c',
-                //     '#ffb57e',
-                //     '#ffb842',
-                //     '#ffd83d',
-                //     '#bbdd2f',
-                //     '#abece4',
-                //     '#fe7167',
-                //     '#f3daa2',
-                //     '#f4e976',
-                //     '#b9e5fe',
-                //     '#caa9e2',
-                //     '#c9e9c0',
-                //     '#c6ebf1',
-                //     '#f4cae0',
-                //     '#fe6a9e'
-                // ];
-
-                // #2
-                // const colorList = ['#38beb7', '#dbe380', '#fba89a', '#fe7352', '#e86ca2'];
-
-                // #3
                 const colorList = [
                     'rgba(65, 176, 126, 1)',
                     'rgba(65, 176, 126, 0.8)',

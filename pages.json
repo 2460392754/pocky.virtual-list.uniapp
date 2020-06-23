@@ -9,10 +9,10 @@
             "path": "src/pages/home"
         },
         {
-            "path": "src/pages/action-1"
+            "path": "src/pages/static"
         },
         {
-            "path": "src/pages/action-2"
+            "path": "src/pages/dynamic"
         }
     ],
 
@@ -32,14 +32,14 @@
         "backgroundColor": "#ffffff",
         "list": [
             {
-                "pagePath": "src/pages/action-1",
-                "text": "方案1",
+                "pagePath": "src/pages/static",
+                "text": "静态",
                 "iconPath": "/static/icon.png",
                 "selectedIconPath": "/static/select-icon.png"
             },
             {
-                "pagePath": "src/pages/action-2",
-                "text": "方案2",
+                "pagePath": "src/pages/dynamic",
+                "text": "动态",
                 "iconPath": "/static/icon.png",
                 "selectedIconPath": "/static/select-icon.png"
             }

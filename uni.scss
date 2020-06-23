@@ -67,6 +67,11 @@ view[class^='page'] {
     .u-title {
         color: $color-white !important;
     }
+    /*  #ifdef  MP-QQ  */
+    .u-navbar-placeholder {
+        display: none;
+    }
+    /*  #endif  */
 }
 
 .u-load-more-wrap {

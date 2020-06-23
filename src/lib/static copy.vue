@@ -203,9 +203,9 @@ export default {
         //     this.$emit('scrolltoupper', ...arguments);
         // },
 
-        // /**
-        //  * scroll-view滚动到底部, 派发事件
-        //  */
+        /**
+         * scroll-view滚动到底部, 派发事件
+         */
         // onScrolltolower() {
         //     this.$emit('scrolltolower', ...arguments);
         // }

@@ -1,12 +1,15 @@
 <template>
-    <view class="page-action-1">
-        <u-navbar :is-back="false" title="方法1 - 固定高度" />
+    <view :class="pageClass">
+        <u-navbar :is-back="false" title="方法2 - 动态高度" />
 
-        <v-static-virtual-list
-            ref="static"
+        <v-virtual-list
+            ref="virtualList"
             v-model="visibleList"
+            height="calc(100vh - 100px - 80rpx)"
             item-height="70"
             :list="list"
+            :dynamic="true"
+            @scrolltoupper="onScrolltoupper"
             @scrolltolower="onScrolltolower"
         >
             <!-- header slot -->
@@ -24,12 +27,14 @@
                 <view
                     v-for="item in visibleList"
                     :key="item.id"
-                    :id="'item-virtual-' + item.id"
-                    :class="itemSelector"
+                    :id="'item-virtual-' + item._virtualId"
+                    :class="itemClass"
+                    :style="item._virtualStyle"
+                    @click="onClickItem(list, String(item._virtualId))"
                 >
-                    <view class="content" :style="{ backgroundColor: item.bg }">{{
-                        item.title
-                    }}</view>
+                    <view class="content" :style="{ backgroundColor: item.bg }">
+                        <view v-for="n in item.random" :key="n">{{ item.title }}</view>
+                    </view>
                 </view>
             </template>
 
@@ -42,28 +47,30 @@
                     :load-text="{ loading: '下拉加载中...' }"
                 />
             </template>
-        </v-static-virtual-list>
+        </v-virtual-list>
 
-        <view class="center">静态高度</view>
+        <view class="center">动态高度</view>
     </view>
 </template>
 
 <script>
-import VStaticVirtualList from '@/lib/static';
+import VVirtualList from '../lib/virtual-list';
 import MPage from '../mixins/page';
+import { random } from '../utils';
 
 export default {
-    name: 'PageAction1',
+    name: 'PageDynamic',
 
     mixins: [MPage],
 
     components: {
-        VStaticVirtualList
+        VVirtualList
     },
 
     data() {
         return {
-            itemSelector: 'item-virtual'
+            pageClass: 'page-dynamic',
+            itemClass: 'item-virtual'
         };
     },
 
@@ -72,10 +79,10 @@ export default {
     },
 
     mounted() {
-        this.$refs.static.initialization({
+        this.$refs.virtualList.initialization({
             pageContext: this,
-            containerSelector: '.page-action-1',
-            itemSelector: '.' + this.itemSelector
+            containerSelector: '.' + this.pageClass,
+            itemSelector: '.' + this.itemClass
         });
     },
 
@@ -90,8 +97,9 @@ export default {
                 const n = i + this.list.length;
 
                 tempList.push({
-                    id: n,
+                    _virtualId: n,
                     title: 'list-' + this.resetCount + '-' + Number(n + 1),
+                    random: Array(random(1, 3)),
                     bg: this.$_getRandomBgColor()
                 });
             }
@@ -103,11 +111,9 @@ export default {
 </script>
 
 <style lang="scss">
-.page-action-1 {
-    /deep/ .virtual-list-container {
+.page-dynamic {
+    /deep/ .virtual-list {
         margin-top: 20rpx;
-        height: calc(100vh - 100px - 80rpx);
-        overflow: scroll;
     }
 }
 </style>
