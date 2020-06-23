@@ -11,5 +11,9 @@
     },
     "author": "pocky",
     "license": "ISC",
-    "description": "一个简约的虚拟列表"
+    "description": "一个简约的虚拟列表",
+    "bugs": {
+        "url": "https://github.com/2460392754/pocky.virtual-list.uniapp/issues"
+    },
+    "homepage": "https://github.com/2460392754/pocky.virtual-list.uniapp#readme"
 }
